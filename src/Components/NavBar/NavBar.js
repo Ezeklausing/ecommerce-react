@@ -1,20 +1,21 @@
 import React from 'react'
+import "./Navbar.css"
 import logo from "../../assets/logo.png"
+import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 
-const Header = () => {
+const Navbar = () => {
   return (
     <header>
-      <img src={logo} alt='Logo carrito tienda'></img>
+      <img  className='logo' src={logo} alt='Logo carrito tienda'></img>
       <h1>Merchandising</h1>
       <nav>
         <a href=''>Remeras</a>
         <a href=''>Cds</a>
-        <a href=''>gorras</a>
+        <a href=''>Gorras</a>
       </nav>
-      <img src='' alt=''></img>
+      <ShoppingCartCheckoutIcon color="success" sx={{ fontSize: 37 }}/>
     </header>
   )
 }
 
-
-export default Header
+export default Navbar

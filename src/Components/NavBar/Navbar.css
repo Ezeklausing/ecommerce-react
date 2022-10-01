@@ -1,0 +1,17 @@
+
+header{
+    background-color: bisque;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 5.5rem;
+}
+
+img{
+    width: 7%;
+}
+
+
+a{
+    margin: 7px
+}

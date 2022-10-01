@@ -1,11 +1,12 @@
 import React from "react";
-import Header from "./Components/NavBar/NavBar"
+import "./App.css"
+import Navbar from "./Components/Navbar/Navbar";
 
 
 const App =()=>{
     return (
         <>
-        <Header />
+        <Navbar />
         </>
     )
     
