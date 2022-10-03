@@ -1,6 +1,6 @@
 
 header{
-    background-color: bisque;
+    background-color: gainsboro;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -13,8 +13,23 @@ img{
 }
 
 
-a{
+a {
+    background: #fff;
+    border: 1px solid #000;
+    border-radius: 2px;
+    color: #000;
+    margin-right: 25px;
+    padding: 4px 12px;
     text-decoration: none;
-    margin: 2rem;
-}
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;   
+  }
+  
+  a:hover {
+    background-color: grey;
+    cursor: pointer;
+  }
+
+
 
