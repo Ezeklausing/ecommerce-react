@@ -5,6 +5,7 @@ header{
     align-items: center;
     justify-content: space-between;
     height: 5.5rem;
+    
 }
 
 img{
@@ -13,5 +14,7 @@ img{
 
 
 a{
-    margin: 7px
+    text-decoration: none;
+    margin: 2rem;
 }
+
