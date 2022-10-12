@@ -1,10 +1,16 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import Swal from 'sweetalert2';
 
  const ItemCount = ({stock, initial,onAdd}) => {
 
 
     const [cantidad, setCantidad] = useState(initial);
+
+    useEffect(()=>{
+      setTimeout(() => {
+        console.log("prueba")
+      }, 1500);
+    },[]);
 
     
     const handlerClickSumar =()=>{
