@@ -6,7 +6,7 @@ import {ItemListContainer} from "./Components/ItemListContainer/ItemListContaine
 
 
 const App =()=>{
-    const msjeBienvenida = "Juan Perez"
+    const msjeBienvenida = "Usuario"
     
     return (
         <>
