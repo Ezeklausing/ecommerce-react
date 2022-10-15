@@ -13,9 +13,9 @@ const styles = {
   container:{
     display: "flex",
     flexDirection: "row",
+    flexWrap: "wrap",
     justifyContent: "space-around",
     alignItems: "center",
-    flexWrap: "wrap",
   }
 }
 
