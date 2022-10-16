@@ -11,13 +11,13 @@ import {
 
 const Item = ({ product }) => {
   return (
-    <Card sx={{ maxWidth: 345 }} style={styles.container}>
+    <Card sx={{ maxWidth: 250,}}  style={styles.container}>
       <CardActionArea>
         <CardMedia
           component="img"
-          height="140"
-          image={product.imagen}
-          alt={product.nombre}
+          height="200"
+          image={product.image}
+          alt={product.title}
         />
         <CardContent>
           <Typography
@@ -26,10 +26,10 @@ const Item = ({ product }) => {
             component="div"
             style={styles.title}
           >
-            {product.nombre}
+            {product.title}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            ${product.precio}
+            ${product.price}
           </Typography>
         </CardContent>
       </CardActionArea>
@@ -44,6 +44,7 @@ const Item = ({ product }) => {
 
 const styles = {
   container: {
+    borderRadius:8,
     width: window.innerHeight > 900 ? "25%" : "90%",
     flexDirection: "column",
     justifyContent: "center",
@@ -54,7 +55,7 @@ const styles = {
   title: {
     textOverflow: "ellipsis",
     overflow: "hidden",
-    height: 200,
+    height: 35,
   },
 };
 
