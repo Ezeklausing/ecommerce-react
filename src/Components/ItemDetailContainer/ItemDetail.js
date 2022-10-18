@@ -37,9 +37,6 @@ const styles = {
     container: {
       borderRadius:8,
       width: window.innerHeight > 900 ? "25%" : "90%",
-      flexDirection: "row",
-      justifyContent: "space-between",
-      alignItems: "center",
       margin: 20,
       backgroundColor: "rgba(220, 220, 220, 0.3)",
     },

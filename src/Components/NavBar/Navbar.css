@@ -1,32 +1,5 @@
 
-header{
-    background-color: gainsboro;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 5.5rem;
-    
-}
-
-img{
-    width: 7%;
-}
-
-
-a {
-    background: #fff;
-    border: 1px solid #000;
-    border-radius: 2px;
-    color: #000;
-    margin-right: 25px;
-    padding: 4px 12px;
-    text-decoration: none;
-    transition: all 0.3s;
-    position: relative;
-    overflow: hidden;   
-  }
-  
-  a:hover {
+a:hover {
     background-color: grey;
     cursor: pointer;
   }

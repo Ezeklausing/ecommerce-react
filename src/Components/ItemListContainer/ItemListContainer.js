@@ -3,6 +3,7 @@ import "./ItemListContainer.css"
 import ItemCount from '../ItemCount/ItemCount'
 import ItemList from './ItemList'
 import { SpinnerDotted } from 'spinners-react';
+import { useParams } from 'react-router-dom';
 
 
 export const ItemListContainer = ({greeting}) => {
@@ -12,8 +13,15 @@ export const ItemListContainer = ({greeting}) => {
   const [loading, setloading] = useState(true);
   
 
+  const {id} = useParams();
+  
+  
+  const URL_BASE = 'https://fakestoreapi.com/products/'
+  const URL_CAT = `${URL_BASE}/category/${id} `
+
+
   useEffect(() => {
-    fetch('https://fakestoreapi.com/products/')
+    fetch(id? URL_CAT : URL_BASE)
             .then(data=>data.json())
             .then((json)=>{
               setproductList(json)
@@ -21,7 +29,8 @@ export const ItemListContainer = ({greeting}) => {
             })
             .catch((e)=>console.log(e))
             .finally()
-  },[]);
+            
+  },[URL_CAT, id]);
   
   return (
       <div>
