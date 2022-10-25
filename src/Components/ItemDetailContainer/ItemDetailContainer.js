@@ -12,7 +12,7 @@ export const ItemDetailContainer = () => {
   const {id} = useParams()
   
   const URL_ITEM= `https://fakestoreapi.com/products/${id}`
-  console.log(URL_ITEM)
+  
 
   useEffect (() => {
     fetch(URL_ITEM)

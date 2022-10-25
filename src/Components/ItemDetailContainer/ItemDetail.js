@@ -1,17 +1,25 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import ItemCount from '../ItemCount/ItemCount';
+import { Link } from 'react-router-dom';
+
 
 const ItemDetail = ({product}) => {
+
+  const [onAdd, setonAdd] = useState(false);
+  const alter = (onAdd)=>{
+     setonAdd(true); 
+  }
+
+
   return (
     <Card sx={{ maxWidth: 300 } }  style={styles.container} >
       <CardMedia
         component="img"
-        height="140"
         image={product.image}
         alt={product.title}
       />
@@ -22,10 +30,12 @@ const ItemDetail = ({product}) => {
         <Typography variant="body2" color="text.secondary">
           {product.description}
         </Typography>
+        <Typography variant="h5">
+            ${product.price}
+        </Typography>
       </CardContent>
-      <CardActions>
-        <Button size="small">Agregar al carrito</Button>
-        <Button size="small">Cantidad</Button>
+      <CardActions style={styles.counter}>
+        {onAdd ? <Link to={"/cart"}><button>Finalizar Compra</button></Link> : <ItemCount stock={10} initial = {1} onAdd={alter}  />}
       </CardActions>
     </Card>
   );
@@ -43,6 +53,9 @@ const styles = {
     title: {
       textOverflow: "ellipsis",
       overflow: "hidden",
-      maxHeight: 200,
+    },
+    counter:{
+      justifyContent:"space-between",
+      
     },
   };

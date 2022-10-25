@@ -1,11 +1,16 @@
 import React, {useState} from 'react'
+import { Button } from '@mui/material';
+
 import Swal from 'sweetalert2';
 
- const ItemCount = ({stock, initial,onAdd}) => {
 
 
-    const [cantidad, setCantidad] = useState(initial);
+ const ItemCount = ({stock, initial, onAdd}) => {
+
     
+    const [cantidad, setCantidad] = useState(initial);
+
+
     const handlerClickSumar =()=>{
         if(cantidad < stock){
             setCantidad(cantidad +1)
@@ -32,6 +37,7 @@ import Swal from 'sweetalert2';
     }
     const handlerClickAgregar =()=>{
         setCantidad(initial);
+        onAdd();
         Swal.fire({
             position: 'center',
             icon: 'success',
@@ -39,16 +45,18 @@ import Swal from 'sweetalert2';
             showConfirmButton: false,
             timer: 1500
           })
-        onAdd()
+        
     }
+
   return (
-    <div>
-        <h2>Cantidad {cantidad}</h2>
-        <button onClick={handlerClickSumar}>+</button>
-        <button onClick={handlerClickRestar}>-</button>
-        <button onClick={handlerClickAgregar}>Agregar al Carrito</button>
-    </div>
+      <>
+        <Button size="small" variant="outlined" onClick={handlerClickSumar}>+</Button>
+        <h4>{cantidad}</h4>
+        <Button size="small" variant="outlined" onClick={handlerClickRestar}>-</Button>
+        <Button size="small" variant="outlined" color="success" onClick={handlerClickAgregar}>Agregar al Carrito</Button>
+      </>
   )
 }
+
 
 export default ItemCount

@@ -5,6 +5,7 @@ import CartView from "./Components/CartView/CartView";
 import {ItemListContainer} from "./Components/ItemListContainer/ItemListContainer";
 import {ItemDetailContainer} from "./Components/ItemDetailContainer/ItemDetailContainer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Users from "./Components/UsersList/Users";
 
 
 
@@ -14,6 +15,7 @@ const App =()=>{
     return (
         <>
             <BrowserRouter>
+                <Users/> 
                 <Navbar />
                 <Routes>
                     <Route path="/" element={<ItemListContainer greeting ={msjeBienvenida} ></ItemListContainer>} />
