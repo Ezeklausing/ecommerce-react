@@ -6,6 +6,7 @@ import {ItemListContainer} from "./Components/ItemListContainer/ItemListContaine
 import {ItemDetailContainer} from "./Components/ItemDetailContainer/ItemDetailContainer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Users from "./Components/UsersList/Users";
+import {CustomProvider} from "./Components/Context/CustomProvider";
 
 
 
@@ -13,18 +14,20 @@ import Users from "./Components/UsersList/Users";
 const App =()=>{
     const msjeBienvenida = "Usuario"
     return (
-        <>
-            <BrowserRouter>
-                <Users/> 
-                <Navbar />
-                <Routes>
-                    <Route path="/" element={<ItemListContainer greeting ={msjeBienvenida} ></ItemListContainer>} />
-                    <Route path="/category/:id" element={<ItemListContainer greeting ={msjeBienvenida} ></ItemListContainer>} />
-                    <Route path="/product/:id" element={<ItemDetailContainer />} />
-                    <Route path="/cart/" element={<CartView/>} />
-                </Routes>
-                <></>
-            </BrowserRouter>
+        <> 
+            <CustomProvider>
+                <BrowserRouter>     
+                    <Users/> 
+                    <Navbar />
+                    <Routes>
+                        <Route path="/" element={<ItemListContainer greeting ={msjeBienvenida} ></ItemListContainer>} />
+                        <Route path="/category/:id" element={<ItemListContainer greeting ={msjeBienvenida} ></ItemListContainer>} />
+                        <Route path="/product/:id" element={<ItemDetailContainer />} />
+                        <Route path="/cart/" element={<CartView/>} />
+                    </Routes>
+                    <></>
+                </BrowserRouter>
+            </CustomProvider> 
         </>    
     )
     

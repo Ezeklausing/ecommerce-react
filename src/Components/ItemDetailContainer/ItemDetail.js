@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -6,13 +6,18 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import ItemCount from '../ItemCount/ItemCount';
 import { Link } from 'react-router-dom';
+import { CartContext } from '../Context/CustomProvider';
 
 
 const ItemDetail = ({product}) => {
+  const [alterComponent, setAlterComponent] = useState(true)
+  
+  const {addItem} = useContext(CartContext)
 
-  const [onAdd, setonAdd] = useState(false);
-  const alter = (onAdd)=>{
-     setonAdd(true); 
+  const onAdd = (cantidad)=>{
+      addItem(product,cantidad)
+      console.log(product)
+      setAlterComponent(false)
   }
 
 
@@ -35,7 +40,7 @@ const ItemDetail = ({product}) => {
         </Typography>
       </CardContent>
       <CardActions style={styles.counter}>
-        {onAdd ? <Link to={"/cart"}><button>Finalizar Compra</button></Link> : <ItemCount stock={10} initial = {1} onAdd={alter}  />}
+        {alterComponent ? <ItemCount stock={10} initial = {1} onAdd={onAdd}  /> :<Link to={"/cart"}><button>Finalizar Compra</button></Link>}
       </CardActions>
     </Card>
   );

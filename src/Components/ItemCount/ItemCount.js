@@ -36,8 +36,8 @@ import Swal from 'sweetalert2';
         
     }
     const handlerClickAgregar =()=>{
+        onAdd(cantidad);
         setCantidad(initial);
-        onAdd();
         Swal.fire({
             position: 'center',
             icon: 'success',
