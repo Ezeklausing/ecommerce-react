@@ -14,9 +14,8 @@ const ItemDetail = ({product}) => {
   
   const {addItem} = useContext(CartContext)
 
-  const onAdd = (cantidad)=>{
-      addItem(product,cantidad)
-      console.log(product)
+  const onAdd = (qty)=>{
+      addItem(product,qty)
       setAlterComponent(false)
   }
 

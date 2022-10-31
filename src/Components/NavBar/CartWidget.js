@@ -6,12 +6,12 @@ import { CartContext } from '../Context/CustomProvider';
 const CartWidget = () => {
 
 
-  const {qty} = useContext(CartContext)
+  const {quantity} = useContext(CartContext)
 
 
   return (
     <>
-    <p> {qty} </p>
+    <p> {quantity} </p>
     <ShoppingCartCheckoutIcon color="success" sx={{ fontSize: 37 }}/>
     </>
   )

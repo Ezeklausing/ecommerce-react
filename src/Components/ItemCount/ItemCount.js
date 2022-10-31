@@ -8,12 +8,12 @@ import Swal from 'sweetalert2';
  const ItemCount = ({stock, initial, onAdd}) => {
 
     
-    const [cantidad, setCantidad] = useState(initial);
+    const [quantity, setQuantity] = useState(initial);
 
 
     const handlerClickSumar =()=>{
-        if(cantidad < stock){
-            setCantidad(cantidad +1)
+        if(quantity < stock){
+            setQuantity(quantity +1)
               }else{
                 Swal.fire({
                     icon: 'error',
@@ -23,8 +23,8 @@ import Swal from 'sweetalert2';
         }
     }
     const handlerClickRestar =()=>{
-        if (cantidad > 1){
-            setCantidad(cantidad -1)
+        if (quantity > 1){
+            setQuantity(quantity -1)
         }
         else{
             Swal.fire({
@@ -36,8 +36,8 @@ import Swal from 'sweetalert2';
         
     }
     const handlerClickAgregar =()=>{
-        onAdd(cantidad);
-        setCantidad(initial);
+        onAdd(quantity);
+        setQuantity(initial);
         Swal.fire({
             position: 'center',
             icon: 'success',
@@ -51,7 +51,7 @@ import Swal from 'sweetalert2';
   return (
       <>
         <Button size="small" variant="outlined" onClick={handlerClickSumar}>+</Button>
-        <h4>{cantidad}</h4>
+        <h4>{quantity}</h4>
         <Button size="small" variant="outlined" onClick={handlerClickRestar}>-</Button>
         <Button size="small" variant="outlined" color="success" onClick={handlerClickAgregar}>Agregar al Carrito</Button>
       </>
