@@ -16,9 +16,8 @@ export const CustomProvider = ({children}) => {
 
   useEffect(() => {
 
-    //puede ser que no funcione porque tiene quantity //qty. 
-      setQuantity(cart.reduce((total,item)=> total + item.quantity, 0))
-      setTotal(cart.reduce((total, item)=> total + (item.quantity * item.price),0))
+      setQuantity(cart.reduce((total,item)=> total + item.qty, 0))
+      setTotal(cart.reduce((total, item)=> total + (item.qty * item.price),0))
       
   }, [cart])
   
@@ -35,18 +34,13 @@ export const CustomProvider = ({children}) => {
     } else {
       setCart([...cart, { ...item, qty }]);
     }
-    setQuantity(quantity + qty);
-    setTotal(total + (item.price * qty));
   };
     
 
   const deleteItem = (id)=>{
-    const found = cart.find(element => element.id === id);
     setCart(cart.filter((item) => item.id !== id));
-    setQuantity( quantity - found.qty)
-    setTotal(total - (found.price * found.qty))
   };
- 
+
 
   const isInCart = (id) => cart.some(item => item.id===id)
     
