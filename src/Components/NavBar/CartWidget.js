@@ -11,8 +11,11 @@ const CartWidget = () => {
 
   return (
     <>
-    <p>{quantity} ${total}</p>
-    <ShoppingCartCheckoutIcon color="success" sx={{ fontSize: 37 }}/>
+    <div>
+      <p>{quantity} ${total}</p>
+      <ShoppingCartCheckoutIcon color="success" sx={{ fontSize: 37 }}/>
+    </div>
+    
     </>
   )
 }

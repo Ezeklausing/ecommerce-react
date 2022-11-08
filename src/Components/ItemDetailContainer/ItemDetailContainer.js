@@ -2,29 +2,36 @@ import React, {useEffect, useState,}  from 'react'
 import ItemDetail from './ItemDetail';
 import { SpinnerDiamond } from 'spinners-react';
 import { useParams } from 'react-router-dom';
+import { getDoc, collection, where, doc } from 'firebase/firestore';
+import { db } from '../../Firebase/firebase';
 
 export const ItemDetailContainer = () => {
   
     
   const [product, setProduct] = useState([]);
-  const [loading, setloading] = useState(true);
+  const [loading, setLoading] = useState(true);
 
   const {id} = useParams()
-  
-  const URL_ITEM= `https://fakestoreapi.com/products/${id}`
-  
 
   useEffect (() => {
-    fetch(URL_ITEM)
-            .then(data=>data.json())
-            .then((json)=>{
-              setProduct(json)
-              setloading(false)
-            })
-            .catch((e)=>console.log(e))
-            .finally()
-  },[URL_ITEM, id]);
+    const productCollection= collection(db, "productos")
+    const refDoc= doc(productCollection, id)
+    
 
+    getDoc(refDoc)
+    .then(resp=>{
+        setProduct({
+          ...resp.data(),
+          id:resp.id
+        },
+        setLoading(false)
+      )
+    })
+    .catch((error) => {
+      console.log(error);
+    })  
+  },[id]);
+  
 
   return (
     <div> 

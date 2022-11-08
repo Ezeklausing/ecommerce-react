@@ -5,7 +5,6 @@ import CartView from "./Components/CartView/CartView";
 import {ItemListContainer} from "./Components/ItemListContainer/ItemListContainer";
 import {ItemDetailContainer} from "./Components/ItemDetailContainer/ItemDetailContainer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Users from "./Components/UsersList/Users";
 import {CustomProvider} from "./Components/Context/CustomProvider";
 
 
@@ -16,8 +15,7 @@ const App =()=>{
     return (
         <> 
             <CustomProvider>
-                <BrowserRouter>     
-                    <Users/> 
+                <BrowserRouter>      
                     <Navbar />
                     <Routes>
                         <Route path="/" element={<ItemListContainer greeting ={msjeBienvenida} ></ItemListContainer>} />

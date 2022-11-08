@@ -1,7 +1,8 @@
 import React, { useContext } from 'react'
 import { CartContext } from '../Context/CustomProvider';
 import { Link } from 'react-router-dom';
-
+import {db} from "../../Firebase/firebase"
+import { CollectionReference, addDoc, serverTimestamp, doc, updateDoc } from 'firebase/firestore';
 
 
 
@@ -33,7 +34,7 @@ const CartView = () => {
     )
   }
 
-
+// eslint-disable-next-line
   const style = {
     position: 'absolute',
     top: '50%',

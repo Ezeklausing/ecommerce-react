@@ -3,32 +3,37 @@ import "./ItemListContainer.css"
 import ItemList from './ItemList'
 import { SpinnerDotted } from 'spinners-react';
 import { useParams } from 'react-router-dom';
-
+import { getDocs, collection, query, where} from 'firebase/firestore';
+import { db } from '../../Firebase/firebase';
 
 export const ItemListContainer = ({greeting}) => {
       
   const [productList, setproductList] = useState([]);
-  const [loading, setloading] = useState(true);
+  const [loading, setLoading] = useState(true);
   
-
+ 
   const {id} = useParams();
-  
-  
-  const URL_BASE = 'https://fakestoreapi.com/products/'
-  const URL_CAT = `${URL_BASE}/category/${id} `
+
+  const listProducts = collection(db, "productos") 
+  const cat = id? query(listProducts, where(`category`, `==`,id )): listProducts;
 
 
   useEffect(() => {
-    fetch(id? URL_CAT : URL_BASE)
-            .then(data=>data.json())
-            .then((json)=>{
-              setproductList(json)
-              setloading(false)
-            })
-            .catch((e)=>console.log(e))
-            .finally()
-            
-  },[URL_CAT, id]);
+    getDocs(cat)
+    .then((resp)=>{
+      const products = resp.docs.map(item=>{
+        return {
+          ...item.data(),
+          id: item.id
+        }
+      })
+      setproductList(products);
+      setLoading(false)
+    })
+    .catch((error) => {
+      console.log(error);
+      })
+  },[id])
   
   return (
       <div>
@@ -39,9 +44,6 @@ export const ItemListContainer = ({greeting}) => {
       </div>
       )
 }
-
-
-
 
 
 
