@@ -40,7 +40,8 @@ export const ItemListContainer = ({greeting}) => {
         
         <h2 style={{color:"grey", marginLeft: 10 }}>Bienvenido, {greeting}</h2>
         <></>
-        {loading ? <SpinnerDotted size={"5%"} color={'#282c34'} /> : <ItemList  products= {productList} />}  
+        {
+        loading ? <div><SpinnerDotted size={"5%"} color={'#282c34'} /></div> : <ItemList  products= {productList} />}  
       </div>
       )
 }

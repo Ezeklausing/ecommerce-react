@@ -2,7 +2,7 @@
 import React,{useState} from 'react'
 
 
-export const Checkout = ({setBuyer, finalizarCompra, clear}) => {
+export const Checkout = ({setBuyer, finalizarCompra}) => {
     
     const [formValues, setformValues] = useState({
         name:"",

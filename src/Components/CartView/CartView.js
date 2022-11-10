@@ -9,7 +9,6 @@ import Swal from 'sweetalert2';
 
 
 
-
 const CartView = () => {
 
   const {cart, clear, deleteItem, total, quantity} = useContext(CartContext)
@@ -82,7 +81,7 @@ const CartView = () => {
             <h2>Ingresa tus datos para finalizar la compra</h2>
             <Checkout setBuyer={setBuyer}  finalizarCompra= {finalizarCompra} />
           </div>
-          <div><button onClick={clear}>Reset Carrito</button></div>
+          <div><button onClick={clear}>Cancelar compra</button></div>
         </>
         
       ) : (
