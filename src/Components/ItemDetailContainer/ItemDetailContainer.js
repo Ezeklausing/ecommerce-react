@@ -2,7 +2,7 @@ import React, {useEffect, useState,}  from 'react'
 import ItemDetail from './ItemDetail';
 import { SpinnerDiamond } from 'spinners-react';
 import { useParams } from 'react-router-dom';
-import { getDoc, collection, where, doc } from 'firebase/firestore';
+import { getDoc, collection, doc } from 'firebase/firestore';
 import { db } from '../../Firebase/firebase';
 
 export const ItemDetailContainer = () => {

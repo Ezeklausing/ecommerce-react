@@ -39,7 +39,7 @@ const ItemDetail = ({product}) => {
         </Typography>
       </CardContent>
       <CardActions style={styles.counter}>
-        {alterComponent ? <ItemCount stock={10} initial = {1} onAdd={onAdd}  /> :<Link to={"/cart"}><button>Finalizar Compra</button></Link>}
+        {alterComponent ? <ItemCount stock={product.stock} initial = {1} onAdd={onAdd}  /> :<Link to={"/cart"}><button>Avanzar compra</button></Link>}
       </CardActions>
     </Card>
   );
