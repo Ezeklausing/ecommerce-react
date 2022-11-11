@@ -11,11 +11,10 @@ const CartWidget = () => {
 
   return (
     <>
-    <div>
+    <div >
       <p>{quantity} ${total}</p>
-      <ShoppingCartCheckoutIcon color="success" sx={{ fontSize: 37 }}/>
+      <ShoppingCartCheckoutIcon color="success" sx={{ fontSize: 40 }}/>
     </div>
-    
     </>
   )
 }

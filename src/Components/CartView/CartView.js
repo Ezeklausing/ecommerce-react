@@ -1,12 +1,11 @@
 import React, { useContext, useState } from 'react'
+import "./CartView.css"
 import { CartContext } from '../Context/CustomProvider';
 import { Link } from 'react-router-dom';
 import {db} from "../../Firebase/firebase"
 import {addDoc, serverTimestamp, doc, updateDoc, collection } from 'firebase/firestore';
 import { Checkout } from './Checkout';
 import Swal from 'sweetalert2';
-
-
 
 
 const CartView = () => {
@@ -36,10 +35,6 @@ const CartView = () => {
             })
         })
         
-
-
-
-
     const ventasCollection = collection(db,"ventas");
     addDoc(ventasCollection,{
       buyer,
@@ -64,18 +59,19 @@ const CartView = () => {
   }
 
 
+
     return(
       <>
       {cart.length !==0 ? (
       <>
           {cart.map((item) => (
-            <h2 key={item.id}>{item.title} cantidad {item.qty}
-            <button onClick={()=>deleteItem(item.id)}>Eliminar Articulo</button></h2>
+            <div key={item.id}>
+              <h4 >{item.title} cantidad {item.qty}
+              <button onClick={()=>deleteItem(item.id)}>Eliminar Articulo</button></h4>
+            </div>
           ))}
-          
           <div>
-            <h2>Total: </h2>
-            <span>${total}</span>                  
+            <h2>Total: <span>${total}</span> </h2>                            
           </div>
           <div>
             <h2>Ingresa tus datos para finalizar la compra</h2>

@@ -20,7 +20,7 @@ const Navbar = () => {
       <Link  to="/">
         <img style={styles.imgLogo} className='logo' src={logo} alt='Logo carrito tienda'></img>
       </Link>
-      <h1>Ecommerce</h1>
+      <h1>Ecommerce </h1>
       <nav>
         {
          categorias.map ((categoria)=>{
@@ -47,7 +47,7 @@ export const styles = {
       display: viewport.width > 900 ? "flex" : "none",
       alignItems: "center",
       justifyContent: "space-between",
-      backgroundColor: "gainsboro",
+      backgroundColor: "#FFD369",
       height: "5.5rem",
       width: "100%",
     },
